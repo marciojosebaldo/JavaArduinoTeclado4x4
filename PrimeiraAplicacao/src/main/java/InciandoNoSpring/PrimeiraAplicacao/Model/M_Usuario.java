@@ -3,12 +3,12 @@ package InciandoNoSpring.PrimeiraAplicacao.Model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "usuario")
 public class M_Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String usuario;
+    private String nome;
     private String senha;
 
     public Long getId() {
@@ -19,12 +19,12 @@ public class M_Usuario {
         this.id = id;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getNome() {
+        return nome;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setNome(String usuario) {
+        this.nome = usuario;
     }
 
     public String getSenha() {
@@ -35,4 +35,3 @@ public class M_Usuario {
         this.senha = senha;
     }
 }
-
