@@ -6,7 +6,6 @@ import java.nio.charset.StandardCharsets;
 
 import InciandoNoSpring.PrimeiraAplicacao.Model.M_Usuario;
 import InciandoNoSpring.PrimeiraAplicacao.Service.S_Arduino;
-import InciandoNoSpring.PrimeiraAplicacao.Service.S_Usuario;
 import com.fazecast.jSerialComm.SerialPort;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,9 +20,9 @@ import java.util.Locale;
 @SpringBootApplication
 public class PrimeiraAplicacaoApplication {
 
-	private static final String PORT_NAME = "COM3";
+	private static final String PORT_NAME = "/dev/ttyUSB0";
 	private static final int BAUD_RATE = 9600;
-	private static final int READ_TIMEOUT = 1000; // Tempo de espera em milissegundos
+	private static final int READ_TIMEOUT = 200; // Tempo de espera em milissegundos
 
 	public static void main(String[] args) {
 
@@ -61,15 +60,21 @@ public class PrimeiraAplicacaoApplication {
 							}
 
 							String senha = builder.toString();
-							System.out.println(senha);
 
 							M_Usuario usuario = S_Arduino.loginArduino(senha);
-							senha = "";
 
 							if (usuario != null) {
-
+                                // Envia comando para o Arduino
+								System.out.println("Usuário válido. Enviando comando para o Arduino.");
+								String abrePorta = "abrePorta";
+								serialPort.getOutputStream().write(abrePorta.getBytes());
+								senha = "";
+								senhaArduino.clear();
+							} else {
+								System.out.println("Usuário inválido. Comando não enviado para o Arduino.");
+								senha = "";
+								senhaArduino.clear();
 							}
-
 						}
 					}
 				} else {

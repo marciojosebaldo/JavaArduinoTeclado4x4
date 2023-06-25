@@ -15,11 +15,18 @@ const byte pinosColunas[colunas] = {30, 31, 34, 35}; // Pinos de conexão das co
 
 Keypad tecladoHotel = Keypad(makeKeymap(teclasMatriz), pinosLinhas, pinosColunas, linhas, colunas);
 
+int led = 13;
+
 void setup() {
+
   Serial.begin(9600); // Inicia porta serial
+  pinMode(led, OUTPUT);
+  digitalWrite(led, LOW);
+
 }
 
 void loop() {
+
   char leituraTecla = tecladoHotel.getKey();
 
   if (leituraTecla) {
@@ -27,5 +34,17 @@ void loop() {
 
     while (tecladoHotel.getKey() != NO_KEY); // Aguarda até que a tecla seja liberada
     delay(200); // Pequeno atraso para evitar leituras múltiplas da tecla "C"
+  }
+
+  if (Serial.available()) {
+    String abrePorta = Serial.readString();
+
+    if (abrePorta == "abrePorta") {
+
+      digitalWrite(led, HIGH);
+      delay(5000);
+      digitalWrite(led, LOW);
+
+    }
   }
 }
