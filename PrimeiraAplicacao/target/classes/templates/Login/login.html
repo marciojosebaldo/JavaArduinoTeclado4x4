@@ -2,10 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login</title>
 </head>
 <body>
-<form action="/" method="post">
+<form action="/Login" method="post"> <!--Este atributo define um formulário em uma página web. O action define o caminho
+para onde os dados serão enviados quando o formulário for submetido. O / indica que os dados serão enviados na
+mesma página atual. O "post" especifica o método HTTP que será usado para enviar os dados do formulário que é
+para enviar informações sensíveis como senhas-->
+    <div>
+        <h2>Login de Usuário</h2>
+    </div>
+    <br>
     <div>
         <label for="usuario">Usuário:</label>
         <input type="text" id="usuario" name="usuario" required>

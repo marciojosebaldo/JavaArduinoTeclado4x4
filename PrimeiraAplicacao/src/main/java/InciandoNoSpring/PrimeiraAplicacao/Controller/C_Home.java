@@ -1,6 +1,6 @@
 package InciandoNoSpring.PrimeiraAplicacao.Controller;
 
-import InciandoNoSpring.PrimeiraAplicacao.Model.M_Usuario;
+import InciandoNoSpring.PrimeiraAplicacao.Model.M_Cadastro;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -13,8 +13,8 @@ import jakarta.servlet.http.HttpSession;
 public class C_Home {
 
     @ModelAttribute("usuario")
-    public M_Usuario getUsuario(HttpSession session) {
-        return (M_Usuario) session.getAttribute("usuario");
+    public M_Cadastro getUsuario(HttpSession session) {
+        return (M_Cadastro) session.getAttribute("usuario");
     }
 
     @GetMapping("/Home")

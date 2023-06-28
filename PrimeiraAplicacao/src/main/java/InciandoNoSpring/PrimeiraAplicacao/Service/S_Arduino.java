@@ -1,6 +1,6 @@
 package InciandoNoSpring.PrimeiraAplicacao.Service;
 
-import InciandoNoSpring.PrimeiraAplicacao.Model.M_Usuario;
+import InciandoNoSpring.PrimeiraAplicacao.Model.M_Cadastro;
 import InciandoNoSpring.PrimeiraAplicacao.Repository.R_Arduino;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ public class S_Arduino {
         this.arduino = arduino;
     }
 
-    public static M_Usuario loginArduino(String senha) {
+    public static M_Cadastro loginArduino(String senha) {
         return arduino.findBySenha(senha);
     }
 

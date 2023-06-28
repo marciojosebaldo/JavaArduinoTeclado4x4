@@ -4,24 +4,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
-import InciandoNoSpring.PrimeiraAplicacao.Model.M_Usuario;
+import InciandoNoSpring.PrimeiraAplicacao.Model.M_Cadastro;
 import InciandoNoSpring.PrimeiraAplicacao.Service.S_Arduino;
 import com.fazecast.jSerialComm.SerialPort;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 @SpringBootApplication
 public class PrimeiraAplicacaoApplication {
 
-	private static final String PORT_NAME = "/dev/ttyUSB0";
-	private static final int BAUD_RATE = 9600;
+	private static final String PORT_NAME = "/dev/ttyUSB0"; // Porta Linux Ubuntu
+	private static final int BAUD_RATE = 9600; // Velocidade em bits
 	private static final int READ_TIMEOUT = 200; // Tempo de espera em milissegundos
 
 	public static void main(String[] args) {
@@ -61,9 +57,10 @@ public class PrimeiraAplicacaoApplication {
 
 							String senha = builder.toString();
 
-							M_Usuario usuario = S_Arduino.loginArduino(senha);
+							// Refazer o código abaixo para o Arduino importar os dados da leitura
+							M_Cadastro cadastro = S_Arduino.loginArduino(senha);
 
-							if (usuario != null) {
+							if (cadastro != null) {
                                 // Envia comando para o Arduino
 								System.out.println("Usuário válido. Enviando comando para o Arduino.");
 								String abrePorta = "abrePorta";
