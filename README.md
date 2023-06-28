@@ -1,5 +1,5 @@
 # Título: JavaArduinoTeclado4x4
-# Descrição: Usuário utiliza teclado 4x4 conectado no Arduino para inserir e senha e simular a abertura de uma porta. Esta abertura da porta é simulada com o acendimento do LED nativo do pino 13 do Arduino. Esta senha é validada no próprio banco de dados. Além disso, é possível cadastrar usuario (cadastro) e reserva de quartos através do [localhost](http://localhost:8080/) que é o Java Web do framework.
+# Descrição: Usuário utiliza teclado 4x4 conectado no Arduino para inserir a senha e simular a abertura de uma porta. Esta abertura da porta é simulada com o acendimento do LED nativo do pino 13 do Arduino. Esta senha é validada no próprio banco de dados. Além disso, é possível cadastrar usuario (cadastro) e reserva de quartos através do [localhost](http://localhost:8080/) que é o Java Web do framework.
 
 # Itens:
   # Arduino Mega 2560 (pode ser usado Uno)
