@@ -17,3 +17,11 @@
 
 # Biblioteca Arduino:
   # Keypad Library for Arduino
+
+# https://start.spring.io/
+  # Project: Maven
+  # Language: Java
+  # Spring Boot: 3.1.0
+  # Packaging: Jar
+  # Java: 17
+  # Dependencies: Spring Web, PostgreSQL Driver, Spring Data JPA, Spring Session, Thymeleaf
